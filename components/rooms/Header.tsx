@@ -1,7 +1,8 @@
 import { Show } from "@clerk/nextjs";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { UserProfileDropdown } from "../UserProfileDropdown";
 import AuthButtons from "../AuthButtons";
+import InteractWithUi from "../InteractWithUi";
 
 export default async function Header() {
     return (
@@ -19,7 +20,15 @@ export default async function Header() {
             <div className="flex items-center gap-2">
                 <Show when="signed-in">
                     <div className="flex items-center gap-2">
-                        <Button size="lg">Create room</Button>
+                        <InteractWithUi
+                            type="activate"
+                            trigger="create-room-dialog"
+                            className={buttonVariants({
+                                size: "lg"
+                            })}
+                        >
+                            Create room
+                        </InteractWithUi>
                         <UserProfileDropdown />
                     </div>
                 </Show>
