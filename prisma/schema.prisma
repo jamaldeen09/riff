@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+
+enum Runtime {
+  web
+  node_js
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String   @unique
+  image         String?   @default("")
+  username      String    @unique
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  rooms    Room[]
+  @@map("users")
+}
+
+model Room {
+  id        String   @id @default(cuid())
+  name      String
+  runtime   Runtime
+  hostId    String   @map("host_id")
+  host      User     @relation(fields: [hostId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  @@map("rooms")
+}
