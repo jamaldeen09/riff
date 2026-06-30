@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useReducer, ReactNode } from "react";
 
-export type TriggerType = "create-room-dialog"
+export type TriggerType = "create-room-dialog" | "leave-room-confirmation-dialog" | "update-room-name-dialog"
 export interface UiContextState {
     activeTrigger: TriggerType | null
 }

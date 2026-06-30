@@ -1,22 +1,13 @@
 "use server"
-import { Runtime } from "@/generated/prisma/enums";
 import { getPrismaErrorMessage, prisma } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 
-export async function createRoom(name: string, runtime: Runtime) {
+export async function createRoom(name: string) {
     // Validate the provided name again (for safety)
     if (!name || typeof name !== "string" || name.length > 50) {
         return {
             success: false,
             message: "Room name must be a valid text string under 50 characters.",
-        }
-    }
-
-    // Validate the provided runtime value as well
-    if (!runtime || !((["node_js", "web"] as Runtime[]).includes(runtime))) {
-        return {
-            success: false,
-            message: "The requested runtime environment is unsupported.",
         }
     }
 
@@ -33,7 +24,6 @@ export async function createRoom(name: string, runtime: Runtime) {
         const room = await prisma.room.create({
             data: {
                 name,
-                runtime,
                 hostId: userId
             },
 
@@ -46,6 +36,7 @@ export async function createRoom(name: string, runtime: Runtime) {
             data: { room },
         }
     } catch (err) {
+        console.error("[createRoom()] error:", err);
         return {
             success: false,
             message: getPrismaErrorMessage(err, "An unexpected error occured while attempting to create your room.")

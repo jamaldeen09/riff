@@ -608,9 +608,9 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export const RoomScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  runtime: 'runtime',
   hostId: 'hostId',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  mode: 'mode'
 } as const
 
 export type RoomScalarFieldEnum = (typeof RoomScalarFieldEnum)[keyof typeof RoomScalarFieldEnum]
@@ -675,16 +675,16 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
- * Reference to a field of type 'Runtime'
+ * Reference to a field of type 'Mode'
  */
-export type EnumRuntimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Runtime'>
+export type EnumModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Mode'>
     
 
 
 /**
- * Reference to a field of type 'Runtime[]'
+ * Reference to a field of type 'Mode[]'
  */
-export type ListEnumRuntimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Runtime[]'>
+export type ListEnumModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Mode[]'>
     
 
 

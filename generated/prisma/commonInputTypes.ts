@@ -110,21 +110,21 @@ export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
-export type EnumRuntimeFilter<$PrismaModel = never> = {
-  equals?: $Enums.Runtime | Prisma.EnumRuntimeFieldRefInput<$PrismaModel>
-  in?: $Enums.Runtime[] | Prisma.ListEnumRuntimeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.Runtime[] | Prisma.ListEnumRuntimeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumRuntimeFilter<$PrismaModel> | $Enums.Runtime
+export type EnumModeNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.Mode | Prisma.EnumModeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.Mode[] | Prisma.ListEnumModeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.Mode[] | Prisma.ListEnumModeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumModeNullableFilter<$PrismaModel> | $Enums.Mode | null
 }
 
-export type EnumRuntimeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.Runtime | Prisma.EnumRuntimeFieldRefInput<$PrismaModel>
-  in?: $Enums.Runtime[] | Prisma.ListEnumRuntimeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.Runtime[] | Prisma.ListEnumRuntimeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumRuntimeWithAggregatesFilter<$PrismaModel> | $Enums.Runtime
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumRuntimeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumRuntimeFilter<$PrismaModel>
+export type EnumModeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Mode | Prisma.EnumModeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.Mode[] | Prisma.ListEnumModeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.Mode[] | Prisma.ListEnumModeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumModeNullableWithAggregatesFilter<$PrismaModel> | $Enums.Mode | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumModeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumModeNullableFilter<$PrismaModel>
 }
 
 export type NestedStringFilter<$PrismaModel = never> = {
@@ -236,21 +236,21 @@ export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
-export type NestedEnumRuntimeFilter<$PrismaModel = never> = {
-  equals?: $Enums.Runtime | Prisma.EnumRuntimeFieldRefInput<$PrismaModel>
-  in?: $Enums.Runtime[] | Prisma.ListEnumRuntimeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.Runtime[] | Prisma.ListEnumRuntimeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumRuntimeFilter<$PrismaModel> | $Enums.Runtime
+export type NestedEnumModeNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.Mode | Prisma.EnumModeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.Mode[] | Prisma.ListEnumModeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.Mode[] | Prisma.ListEnumModeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumModeNullableFilter<$PrismaModel> | $Enums.Mode | null
 }
 
-export type NestedEnumRuntimeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.Runtime | Prisma.EnumRuntimeFieldRefInput<$PrismaModel>
-  in?: $Enums.Runtime[] | Prisma.ListEnumRuntimeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.Runtime[] | Prisma.ListEnumRuntimeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumRuntimeWithAggregatesFilter<$PrismaModel> | $Enums.Runtime
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumRuntimeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumRuntimeFilter<$PrismaModel>
+export type NestedEnumModeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Mode | Prisma.EnumModeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.Mode[] | Prisma.ListEnumModeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.Mode[] | Prisma.ListEnumModeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumModeNullableWithAggregatesFilter<$PrismaModel> | $Enums.Mode | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumModeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumModeNullableFilter<$PrismaModel>
 }
 
 

@@ -9,9 +9,9 @@
 * 🟢 You can import this file directly.
 */
 
-export const Runtime = {
-  web: 'web',
-  node_js: 'node_js'
+export const Mode = {
+  presentation: 'presentation',
+  collaborative: 'collaborative'
 } as const
 
-export type Runtime = (typeof Runtime)[keyof typeof Runtime]
+export type Mode = (typeof Mode)[keyof typeof Mode]

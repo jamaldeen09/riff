@@ -8,9 +8,9 @@ datasource db {
 }
 
 
-enum Runtime {
-  web
-  node_js
+enum Mode {
+  presentation
+  collaborative
 }
 
 model User {
@@ -28,9 +28,9 @@ model User {
 model Room {
   id        String   @id @default(cuid())
   name      String
-  runtime   Runtime
   hostId    String   @map("host_id")
   host      User     @relation(fields: [hostId], references: [id])
   createdAt DateTime @default(now()) @map("created_at")
+  mode      Mode?    @default(presentation)
   @@map("rooms")
 }

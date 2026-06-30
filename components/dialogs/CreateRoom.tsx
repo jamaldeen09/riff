@@ -11,10 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Globe } from "lucide-react";
-import NodeJsIcon from "../NodeJsIcon";
-import { Runtime } from "@/generated/prisma/enums";
 import { useUi } from "@/contexts/UiContext";
 import { toast } from "sonner";
 import useCreateRoom from "@/hooks/use-create-room";
@@ -25,9 +21,7 @@ export function CreateRoom() {
     const { activateTrigger, ui: { activeTrigger }, deactivateTrigger } = useUi();
     const { mutate, isPending } = useCreateRoom();
     const { push } = useRouter();
-
     const [name, setName] = useState("");
-    const [runtime, setRuntime] = useState<Runtime>("web");
 
     const onOpenChange = (value: boolean) => {
         if (value) activateTrigger("create-room-dialog")
@@ -39,7 +33,7 @@ export function CreateRoom() {
         if (!trimmed) return;
         else if (trimmed.length > 50) return toast.error("Room name cannot be longer than 50 characters.")
 
-        else mutate({ name: trimmed, runtime }, {
+        else mutate({ name: trimmed }, {
             onSuccess: (data) => {
                 const roomId = data?.room.id
                 if (!roomId) return;
@@ -49,7 +43,7 @@ export function CreateRoom() {
                 deactivateTrigger();
             }
         })
-    }, [name, runtime, mutate]);
+    }, [name, mutate]);
     return (
         <Dialog open={activeTrigger === "create-room-dialog"} onOpenChange={onOpenChange}>
             <DialogContent>
@@ -73,26 +67,6 @@ export function CreateRoom() {
                             placeholder="what are you building?"
                             disabled={isPending}
                         />
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label className="text-xs text-muted-foreground">Runtime ({runtime === "web" ? "Web" : "Node JS"})</Label>
-                        <ToggleGroup
-                            type="single"
-                            value={runtime}
-                            onValueChange={(v) => v && setRuntime(v as Runtime)}
-                            variant="outline"
-                            disabled={isPending}
-                        >
-                            <ToggleGroupItem value="web" >
-                                <Globe className="size-2.5" />
-                                Web
-                            </ToggleGroupItem>
-                            <ToggleGroupItem value="node_js">
-                                <NodeJsIcon className="size-2.5" />
-                                Node JS
-                            </ToggleGroupItem>
-                        </ToggleGroup>
                     </div>
                 </div>
 
